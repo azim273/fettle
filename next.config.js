@@ -1,11 +1,14 @@
 /** @type {import('next').NextConfig} */
 
-const production = process.env.NODE_ENV === "production";
+const isProd = process.env.NODE_ENV === "production";
+
+const repoName = 'fettle';
 
 const nextConfig = {
-  assetPrefix: production ? '/' : '',
+  assetPrefix: isProd ? `/${repoName}/` : '',
+  basePath: isProd ? `/${repoName}` : '',
   reactStrictMode: true,
   swcMinify: true,
-}
+};
 
-module.exports = nextConfig
+module.exports = nextConfig;
